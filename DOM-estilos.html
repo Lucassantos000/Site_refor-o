@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Estilos - DOM</title>
+
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            
+            background-image: linear-gradient( rgba(18, 251, 224, 0.6) , rgba(85, 241, 85, 0.972));
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            
+        }
+
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            
+        }
+        .no{
+            display: none;
+
+        }
+        
+
+        .container-block{
+            display: flex;
+            position:absolute;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.7) ;
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        
+        .img{
+            background-image: url(./img_nova/logogoogle2png.png);
+          
+           width: 250px;
+           height: 113px;
+
+           background-repeat: no-repeat;
+           background-position: start center;
+           transition: all 0.5s ease-in-out;
+        }
+
+        .img:hover{
+            background-image: url(./img_nova/logogoogle.png);
+            width: 250px;
+            height: 113px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        
+
+   
+        .listas{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            
+           
+        }
+        
+        .listas p{
+            color: rgba(169, 166, 166, 0.224);
+            font-size: 20px;
+            font-weight:700;
+
+            margin: 5px 10px;
+
+            text-shadow: 0px 2px 0.5px black;
+            
+            cursor: pointer;
+            transition: all 0.4s ease-out;
+        }
+
+       .listas p:hover{ 
+            color: black;    
+            top:0px;
+            text-shadow: none;
+            font-size: 15px;
+        }
+
+        
+
+        .modal{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                border: 2px solid rgba(18, 251, 224, 0.6);
+                width: 400px;
+                height: 450px;
+        }
+
+        .modal .container{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-evenly;
+
+            background-color: black;
+        }
+
+        .exit{
+            display: flex;
+            width: 98%;
+            justify-content: flex-end;
+            
+        }
+
+        .exit p{
+
+            color:white;
+            font-size: 12px;
+            font-weight: 500;
+
+            border: 0.5px solid white;
+            border-radius: 50px 50px;
+            box-shadow: 0 0 1px gray;
+
+            cursor: pointer;    
+
+            margin-bottom:15px;
+            padding: 2px;
+        }
+
+        .titulo_modal{
+            text-align: center;
+
+            color: white;
+            text-shadow: 0px 1px 2px black;
+            font-size: 30px;
+            margin: auto auto;
+            
+        }
+
+        .meme{
+            background-image: url(./img_nova/meme-modal.png.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            width: 230px;
+            height: 110px;
+            
+        }
+
+        #nome{
+            background: none;
+            border: 1px solid rgba(18, 251, 224, 0.6);
+            border-radius: 10px;
+            box-shadow: 0px 0px 3px rgb(142, 240, 241);
+
+            width: 200px;
+            height: 25px;
+
+            color: white;
+
+        }
+
+        #nome::placeholder{
+         padding-left: 10px;
+        }
+        #nome:hover{
+            box-shadow: 0px 0px 5px rgb(142, 240, 241);
+        }
+
+        .nome{
+            margin:30px auto;
+        }
+
+        #senha{
+
+            background: none;
+            border: 1px solid rgba(18, 251, 224, 0.6);
+            border-radius: 10px;
+            box-shadow: 0px 0px 3px rgb(142, 240, 241);
+
+            width: 200px;
+            height: 25px;
+
+            color: white;
+        }
+
+        #senha::placeholder{
+            padding-left: 10px;
+        }
+        #senha:hover{
+            box-shadow: 0px 0px 5px rgb(142, 240, 241);
+        }
+
+        .senha{
+            margin:30px auto;
+        }
+
+        #botao{
+            background-image: linear-gradient( 90deg,  rgba(70, 253, 60, 0.5) , rgba(60, 253, 186, 0.7) ) ;
+            background-repeat: no-repeat;
+
+            width: 100px;
+            height: 30px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+
+            color:rgb(105, 104, 104);
+            font-weight: 700;
+        }
+
+        #botao:hover{
+            background-image: linear-gradient( 90deg, rgba(60, 253, 186, 0.7), rgba(70, 253, 60, 0.5) ) ;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .botao{
+            margin:30px auto;
+        }
+
+        .info{
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            font-weight:500;
+        }
+
+
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+    <div id="block" class="no ">
+
+        <div class="modal">
+
+            <div class="exit">
+                <p>X</p>
+            </div>
+
+            <div class="container">
+              
+                <h2 class="titulo_modal"> Reforço Mat/Fis</h2>
+            
+                <div class="meme"></div>
+
+            </div>
+            
+            
+            <div class="nome">
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+            </div>
+
+            <div class="senha">
+                <input type="password" name="senha" id="senha" placeholder="Senha">
+            </div>
+
+            <div class="botao" >
+                <button id="botao" > ENVIAR </button>
+            </div>
+
+            <div class="info">
+                <p>Preencha os campos com informações válidas <br> Será enviada uma menasgem para o número informado</p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <header>
+        <div class="img" >   </div>
+        <div class="listas">
+           
+            <p>Jogos</p>     
+            <p>Livros</p>    
+            <p>Musica</p>   
+            <p>Filmes</p>  
+        </div>
+    </header>
+
+
+    <section  class="corpo">
+        
+        <div>
+
+
+            
+        </div>
+
+
+    </section>
+    
+   
+
+</body>
+
+<script>
+
+    
+    const adiciona = document.getElementsByClassName('no')[0];
+    const  remove = document.getElementsByClassName('no')[0];
+    const botao = document.getElementsByClassName("img")[0];
+    const sair = document.getElementsByClassName("exit")[0];
+   
+    botao.addEventListener("click",  ligaModal);
+    sair.addEventListener("click" ,  desligaModal);
+    
+    function ligaModal(){
+        
+        adiciona.classList.toggle( "container-block");
+    }
+
+
+    function desligaModal(){
+        remove.classList.toggle("container-block");
+    }
+
+    
+
+
+  
+
+</script>
+
+
+</html>
